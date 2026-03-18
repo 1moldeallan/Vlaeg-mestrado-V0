@@ -1,0 +1,14 @@
+# Arquivos de Sistema e Mac
+.DS_Store
+
+# Ambientes Virtuais de Python
+.venv/
+env/
+venv/
+__pycache__/
+
+# Segredos NÃO PODEM IR PRO GITHUB
+.env
+
+# Arquivos Temporários
+.tmp/
