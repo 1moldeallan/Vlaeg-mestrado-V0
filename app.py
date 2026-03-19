@@ -40,14 +40,6 @@ with col1:
     observacoes = st.text_area("Observações do Professor (Opcional):", placeholder="Ex: desejo que a aula utilize separação de misturas homogêneas...")
     
     condicao_visual = st.radio("Condição Visual do Aluno:", ["Cego", "Baixa visão"])
-    btn_build_index = st.button("📚 Indexar Manuais (Primeiro Uso RAG)")
-    if btn_build_index:
-        with st.spinner("Lendo os PDFs e criando banco de inteligência da turma..."):
-            try:
-                rag_retriever.build_vector_store()
-                st.success("Arquivos indexados com sucesso! O RAG está pronto.")
-            except Exception as e:
-                st.error(f"Erro ao indexar: {e}")
 
 with col2:
     st.header("⚡ Plano SINAPSE Gerado")

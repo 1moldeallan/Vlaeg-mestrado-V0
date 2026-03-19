@@ -6,7 +6,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv
 
-DB_DIR = ".tmp/chroma_db"
+DB_DIR = "vector_db/chroma_db"
 KB_DIR = "knowledge_base"
 
 def load_environment():
