@@ -9,7 +9,7 @@ import lesson_generator
 import rag_retriever
 import pdf_exporter
 
-st.set_page_config(page_title="S.I.N.A.P.S.E | Laboratório Inclusivo", layout="wide", page_icon="🧠")
+st.set_page_config(page_title="S.I.N.A.P.S.E | Laboratório Inclusivo", layout="centered", page_icon="🧠")
 
 # ==========================================
 # INJEÇÃO PUSHDOWN DE CSS (TEMA PREMIUM)
@@ -180,85 +180,83 @@ st.subheader("Sistema Inclusivo de Aulas Práticas, Sensoriais e Experimentais")
 
 st.divider()
 
-col1, col2 = st.columns([1, 2])
+temas_disponiveis = [
+    "Propriedades gerais e específicas da matéria",
+    "Fenômeno físico e químico",
+    "Substância e mistura",
+    "Métodos de separação de misturas",
+    "Atomística",
+    "Tabela periódica",
+    "Ligações químicas",
+    "Polaridade e forças intermoleculares",
+    "Leis ponderais",
+    "Relações numéricas (massa, mol, entidades e volume)",
+    "Estequiometria",
+    "Funções inorgânicas"
+]
+tema = st.selectbox("Qual o Tema da Aula Prática?", options=temas_disponiveis)
 
-with col1:
-    temas_disponiveis = [
-        "Propriedades gerais e específicas da matéria",
-        "Fenômeno físico e químico",
-        "Substância e mistura",
-        "Métodos de separação de misturas",
-        "Atomística",
-        "Tabela periódica",
-        "Ligações químicas",
-        "Polaridade e forças intermoleculares",
-        "Leis ponderais",
-        "Relações numéricas (massa, mol, entidades e volume)",
-        "Estequiometria",
-        "Funções inorgânicas"
-    ]
-    tema = st.selectbox("Qual o Tema da Aula Prática?", options=temas_disponiveis)
-    
-    observacoes = st.text_area("Observações do Professor (Opcional):", placeholder="Ex: desejo que a aula utilize separação de misturas homogêneas...")
-    
-    condicao_visual = st.radio("Condição Visual do Aluno:", ["Cego", "Baixa visão"])
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    btn_gerar = st.button("🚀 Gerar Plano de Aula", type="primary", use_container_width=True)
+observacoes = st.text_area("Observações do Professor (Opcional):", placeholder="Ex: desejo que a aula utilize separação de misturas homogêneas...")
 
-with col2:
-    if btn_gerar:
-        if not tema:
-            st.warning("Por favor, digite o tema da aula primeiro.")
-        else:
-            with st.spinner("Buscando na literatura validada e adequando as Restrições (POP 02)..."):
+condicao_visual = st.radio("Condição Visual do Aluno:", ["Cego", "Baixa visão"])
+
+st.markdown("<br>", unsafe_allow_html=True)
+btn_gerar = st.button("🚀 Gerar Plano de Aula", type="primary", use_container_width=True)
+
+st.divider()
+
+if btn_gerar:
+    if not tema:
+        st.warning("Por favor, digite o tema da aula primeiro.")
+    else:
+        with st.spinner("Buscando na literatura validada e adequando as Restrições (POP 02)..."):
+            try:
+                saida = lesson_generator.gerar_plano_de_aula(
+                    tema=tema, 
+                    observacoes=observacoes, 
+                    condicao_visual=condicao_visual
+                )
+                plano = json.loads(saida) # Parseia a string de volta pra dic
+                
+                st.success("Plano Gerado com Sucesso! 🌟")
+                
                 try:
-                    saida = lesson_generator.gerar_plano_de_aula(
-                        tema=tema, 
-                        observacoes=observacoes, 
-                        condicao_visual=condicao_visual
+                    pdf_bytes = pdf_exporter.export_to_pdf(saida)
+                    st.download_button(
+                        label="📥 Compartilhar / Baixar Plano de Aula em PDF",
+                        data=pdf_bytes,
+                        file_name=f"Plano_SINAPSE_{tema.replace(' ', '_')}.pdf",
+                        mime="application/pdf",
+                        use_container_width=True
                     )
-                    plano = json.loads(saida) # Parseia a string de volta pra dic
-                    
-                    st.success("Plano Gerado com Sucesso! 🌟")
-                    
-                    try:
-                        pdf_bytes = pdf_exporter.export_to_pdf(saida)
-                        st.download_button(
-                            label="📥 Compartilhar / Baixar Plano de Aula em PDF",
-                            data=pdf_bytes,
-                            file_name=f"Plano_SINAPSE_{tema.replace(' ', '_')}.pdf",
-                            mime="application/pdf",
-                            use_container_width=True
-                        )
-                    except Exception as e:
-                        st.error(f"Erro ao gerar o PDF: {e}")
-                        
-                    st.divider()
-                    
-                    # Exibindo estilizado e amigável
-                    st.subheader(f"📌 {plano.get('tema', tema)}")
-                    st.info(f"**🎯 Objetivo Inclusivo:** {plano.get('objetivo_inclusivo')}")
-                    
-                    roteiro = plano.get("Roteiro_Experimento", {})
-                    st.markdown(f"### 🔬 Experimento: {roteiro.get('titulo')}")
-                    
-                    with st.expander("🛠️ Materiais Necessários", expanded=True):
-                        for item in roteiro.get("materiais", []):
-                            st.markdown(f"- {item}")
-                    
-                    with st.expander("📖 Passo a Passo", expanded=True):
-                        for i, passo in enumerate(roteiro.get("passo_a_passo", []), 1):
-                            st.markdown(f"**{i}.** {passo}")
-                    
-                    st.warning(f"**🧑‍🦯 Adaptação para o Aluno Cego:**\n\n{roteiro.get('adaptacao_deficiencia_visual')}")
-                    
-                    with st.expander("⚠️ Regras Estritas de Segurança", expanded=False):
-                        for regra in plano.get("dicas_seguranca", []):
-                            st.markdown(f"- 🛑 {regra}")
-                            
-                except json.JSONDecodeError:
-                    st.error("O modelo não retornou um JSON válido. Veja a saída crua:")
-                    st.code(saida)
                 except Exception as e:
-                    st.error(f"Erro inesperado: {str(e)}")
+                    st.error(f"Erro ao gerar o PDF: {e}")
+                    
+                st.divider()
+                
+                # Exibindo estilizado e amigável
+                st.subheader(f"📌 {plano.get('tema', tema)}")
+                st.info(f"**🎯 Objetivo Inclusivo:** {plano.get('objetivo_inclusivo')}")
+                
+                roteiro = plano.get("Roteiro_Experimento", {})
+                st.markdown(f"### 🔬 Experimento: {roteiro.get('titulo')}")
+                
+                with st.expander("🛠️ Materiais Necessários", expanded=True):
+                    for item in roteiro.get("materiais", []):
+                        st.markdown(f"- {item}")
+                
+                with st.expander("📖 Passo a Passo", expanded=True):
+                    for i, passo in enumerate(roteiro.get("passo_a_passo", []), 1):
+                        st.markdown(f"**{i}.** {passo}")
+                
+                st.warning(f"**🧑‍🦯 Adaptação para o Aluno Cego:**\n\n{roteiro.get('adaptacao_deficiencia_visual')}")
+                
+                with st.expander("⚠️ Regras Estritas de Segurança", expanded=False):
+                    for regra in plano.get("dicas_seguranca", []):
+                        st.markdown(f"- 🛑 {regra}")
+                        
+            except json.JSONDecodeError:
+                st.error("O modelo não retornou um JSON válido. Veja a saída crua:")
+                st.code(saida)
+            except Exception as e:
+                st.error(f"Erro inesperado: {str(e)}")
