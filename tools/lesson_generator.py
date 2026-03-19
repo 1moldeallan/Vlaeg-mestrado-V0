@@ -18,7 +18,7 @@ class PlanoDeAulaSaida(BaseModel):
     Roteiro_Experimento: RoteiroExperimento
     dicas_seguranca: List[str] = Field(description="Regras severas de contenção e uso seguro no laboratório inclusivo")
 
-def gerar_plano_de_aula(tema: str, observacoes: str = "", condicao_visual: str = "Cego por completo") -> str:
+def gerar_plano_de_aula(tema: str, observacoes: str = "", condicao_visual: str = "Cego") -> str:
     """Invoca o LLM com o Contexto RAG e força a saída no Schema JSON validado."""
     rag_retriever.load_environment()
     api_key = os.environ.get("GEMINI_API_KEY")
