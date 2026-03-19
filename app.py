@@ -62,6 +62,23 @@ div[data-testid="stButton"] button:hover {
     background-color: #D4FF33 !important;
 }
 
+/* Botão de Download (Secundário) - Roxo Vibrante */
+div[data-testid="stDownloadButton"] button {
+    background-color: #8A2BE2 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 30px !important;
+    font-weight: 700 !important;
+    padding: 10px 24px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3) !important;
+}
+div[data-testid="stDownloadButton"] button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.6) !important;
+    background-color: #9D4EDD !important;
+}
+
 /* Correção de Contraste Absoluto (Textos Claros e Legíveis) */
 label, label p, label span, .st-emotion-cache-1jbcun8, .st-emotion-cache-1629p8f p {
     color: #F8F5FF !important; /* Branco brilhante para não afundar no escuro */
