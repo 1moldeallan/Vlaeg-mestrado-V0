@@ -183,8 +183,6 @@ st.divider()
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    st.header("📝 Configuração da Aula")
-    
     temas_disponiveis = [
         "Propriedades gerais e específicas da matéria",
         "Fenômeno físico e químico",
@@ -206,8 +204,6 @@ with col1:
     condicao_visual = st.radio("Condição Visual do Aluno:", ["Cego", "Baixa visão"])
 
 with col2:
-    st.header("✨ Plano SINAPSE Gerado")
-    
     if st.button("🚀 Gerar Plano de Aula", type="primary", use_container_width=True):
         if not tema:
             st.warning("Por favor, digite o tema da aula primeiro.")
