@@ -25,6 +25,11 @@ custom_css = """
     font-family: 'Outfit', sans-serif !important;
 }
 
+/* Remove a barra superior branca nativa do Streamlit (ícones de Github, Deploy, etc) */
+[data-testid="stHeader"] {
+    display: none !important;
+}
+
 /* Tipografia global */
 html, body, [class*="css"]  {
     font-family: 'Outfit', sans-serif !important;
