@@ -38,8 +38,20 @@ def gerar_plano_de_aula(tema: str, observacoes: str = "", condicao_visual: str =
         google_api_key=api_key
     )
     
-    # Injetar o Schema nas instruções
-    parser = PlanoDeAulaSaida.schema_json()
+    # Injetar o Schema nas instruções de forma explícita (sem $refs do Pydantic)
+    parser = """
+    {
+      "tema": "string",
+      "objetivo_inclusivo": "string",
+      "Roteiro_Experimento": {
+        "titulo": "string",
+        "materiais": ["string"],
+        "passo_a_passo": ["string"],
+        "adaptacao_deficiencia_visual": "string (Como o aluno cego interage? Audição? Tato? Olfato?)"
+      },
+      "dicas_seguranca": ["string"]
+    }
+    """
 
     template = """
     Você é um agente educacional focado em Química e Educação Inclusiva (Protocolo V.L.A.E.G.).
