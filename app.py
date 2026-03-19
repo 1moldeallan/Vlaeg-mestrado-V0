@@ -8,12 +8,14 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "tools"))
 import lesson_generator
 import rag_retriever
 
-st.set_page_config(page_title="Agente VLAEG | Química Inclusiva", layout="wide", page_icon="🧪")
+st.set_page_config(page_title="S.I.N.A.P.S.E | Laboratório Inclusivo", layout="wide", page_icon="🧠")
 
 # Header Criativo
-st.title("🧪 Planejador de Laboratório: Química Inclusiva")
+st.title("🧠 S.I.N.A.P.S.E.")
+st.subheader("Sistema Inclusivo de Aulas Práticas, Sensoriais e Experimentais")
+
 st.markdown("""
-**Protocolo V.L.A.E.G. Ativado** | Este agente cruza artigos e manuais acadêmicos (`knowledge_base/`) para criar aulas práticas originais baseadas em percepção multi-sensorial (tato, audição e olfato) adaptadas para alunos com deficiência visual.
+**Motor V.L.A.E.G. Ativado** | O **SINAPSE** cruza manuais acadêmicos de acessibilidade (`knowledge_base/`) para projetar do zero aulas práticas de laboratório, focadas em percepção multi-sensorial (tato, audição e olfato) para integração total de alunos cegos e de baixa visão.
 """)
 st.divider()
 
@@ -51,7 +53,7 @@ with col1:
                 st.error(f"Erro ao indexar: {e}")
 
 with col2:
-    st.header("🤖 Plano da IA Gerado")
+    st.header("⚡ Plano SINAPSE Gerado")
     
     if st.button("✨ Gerar Plano de Aula", type="primary", use_container_width=True):
         if not tema:
