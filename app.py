@@ -60,6 +60,20 @@ with col2:
                     
                     st.success("Plano Gerado com Sucesso! 🌟")
                     
+                    try:
+                        pdf_bytes = pdf_exporter.export_to_pdf(saida)
+                        st.download_button(
+                            label="📥 Compartilhar / Baixar Plano de Aula em PDF",
+                            data=pdf_bytes,
+                            file_name=f"Plano_SINAPSE_{tema.replace(' ', '_')}.pdf",
+                            mime="application/pdf",
+                            use_container_width=True
+                        )
+                    except Exception as e:
+                        st.error(f"Erro ao gerar o PDF: {e}")
+                        
+                    st.divider()
+                    
                     # Exibindo estilizado e amigável
                     st.subheader(f"📌 {plano.get('tema', tema)}")
                     st.info(f"**🎯 Objetivo Inclusivo:** {plano.get('objetivo_inclusivo')}")
@@ -80,19 +94,6 @@ with col2:
                     with st.expander("⚠️ Regras Estritas de Segurança", expanded=False):
                         for regra in plano.get("dicas_seguranca", []):
                             st.markdown(f"- 🛑 {regra}")
-                            
-                    st.divider()
-                    try:
-                        pdf_bytes = pdf_exporter.export_to_pdf(saida)
-                        st.download_button(
-                            label="📥 Compartilhar / Baixar Plano de Aula em PDF",
-                            data=pdf_bytes,
-                            file_name=f"Plano_SINAPSE_{tema.replace(' ', '_')}.pdf",
-                            mime="application/pdf",
-                            use_container_width=True
-                        )
-                    except Exception as e:
-                        st.error(f"Erro ao gerar o PDF: {e}")
                             
                 except json.JSONDecodeError:
                     st.error("O modelo não retornou um JSON válido. Veja a saída crua:")
