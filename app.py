@@ -202,9 +202,12 @@ with col1:
     observacoes = st.text_area("Observações do Professor (Opcional):", placeholder="Ex: desejo que a aula utilize separação de misturas homogêneas...")
     
     condicao_visual = st.radio("Condição Visual do Aluno:", ["Cego", "Baixa visão"])
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    btn_gerar = st.button("🚀 Gerar Plano de Aula", type="primary", use_container_width=True)
 
 with col2:
-    if st.button("🚀 Gerar Plano de Aula", type="primary", use_container_width=True):
+    if btn_gerar:
         if not tema:
             st.warning("Por favor, digite o tema da aula primeiro.")
         else:
