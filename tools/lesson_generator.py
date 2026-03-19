@@ -80,12 +80,14 @@ def gerar_plano_de_aula(tema: str, observacoes: str = "", condicao_visual: str =
 
     response = llm.invoke(formatted_prompt)
     
-    # Limpeza básica caso o LLM insista em mandar Markdown
     raw_content = response.content.strip()
-    if raw_content.startswith("```json"):
-        raw_content = raw_content[7:]
-    if raw_content.endswith("```"):
-        raw_content = raw_content[:-3]
+    
+    # Extrai estritamente o bloco JSON caso o LLM adicione texto antes ou depois (Ex: "Aqui está o seu plano:")
+    start_idx = raw_content.find('{')
+    end_idx = raw_content.rfind('}')
+    
+    if start_idx != -1 and end_idx != -1:
+        raw_content = raw_content[start_idx:end_idx+1]
         
     return raw_content.strip()
 
