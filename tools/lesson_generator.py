@@ -18,7 +18,7 @@ class PlanoDeAulaSaida(BaseModel):
     Roteiro_Experimento: RoteiroExperimento
     dicas_seguranca: List[str] = Field(description="Regras severas de contenção e uso seguro no laboratório inclusivo")
 
-def gerar_plano_de_aula(tema: str) -> str:
+def gerar_plano_de_aula(tema: str, observacoes: str = "", condicao_visual: str = "Cego por completo") -> str:
     """Invoca o LLM com o Contexto RAG e força a saída no Schema JSON validado."""
     rag_retriever.load_environment()
     api_key = os.environ.get("GEMINI_API_KEY")
@@ -45,7 +45,10 @@ def gerar_plano_de_aula(tema: str) -> str:
     Você é um agente educacional focado em Química e Educação Inclusiva (Protocolo V.L.A.E.G.).
     A sua tarefa é construir um Plano de Aula Prática sobre o tema: {tema}.
     
-    A sala possui alunos videntes e uma aluna cega. A aula precisa ser A MESMA para todos, sem isolamento.
+    A sala possui alunos videntes e um aluno com a seguinte condição visual: {condicao_visual}. A aula precisa ser A MESMA para todos, sem isolamento.
+
+    ### OBSERVAÇÕES E DIRETRIZES DO PROFESSOR:
+    {observacoes}
 
     ### CONTEXTO DA BASE CIENTÍFICA (EXTRAÍDO DE ARTIGOS/LIVROS DA KNOWLEDGE_BASE):
     {contexto}
@@ -63,12 +66,14 @@ def gerar_plano_de_aula(tema: str) -> str:
     """
     
     prompt = PromptTemplate(
-        input_variables=["tema", "contexto", "schema_json"],
+        input_variables=["tema", "observacoes", "condicao_visual", "contexto", "schema_json"],
         template=template
     )
 
     formatted_prompt = prompt.format(
         tema=tema,
+        observacoes=observacoes if observacoes.strip() else "Nenhuma observação extra fornecida. Siga com o planejamento criativo livre.",
+        condicao_visual=condicao_visual,
         contexto=contexto_pdf,
         schema_json=parser
     )

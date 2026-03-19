@@ -36,3 +36,9 @@
 - Arquitetura de 3 camadas (A.N.T. - Arquitetura, Navegação, Ferramentas).
 - A base de conhecimento (artigos validados) deve ser consultada preferencialmente antes de qualquer geração criativa de experimento.
 - Lógica de negócios determinística (Camada 3). POPs atualizados antes do código.
+
+## Log de Manutenção (Fase 5 - Gatilho)
+- **CI/CD Ativo:** Qualquer push na `main` do repositório `Vlaeg-mestrado-V0` ativa atualização no Streamlit Cloud em tempo real.
+- **Gerenciamento de Segredos:** A chave `GEMINI_API_KEY` deve ser declarada exclusivamente no ambiente seguro do Streamlit (Settings > Secrets). O arquivo `.env` nunca sobe para a nuvem.
+- **Atualização da Base RAG:** Caso precise incluir novos PDFs, as varreduras de ChromaDB local no diretório `.tmp/` não vão para a nuvem. É preferível subir os PDFs na pasta `knowledge_base` e rodar a indexação diretamente no botão da interface web.
+- **Modelo Oficial:** O projeto usa globalmente na arquitetura a versão estável `gemini-2.5-flash` habilitada na cota de API do professor.

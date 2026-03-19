@@ -21,8 +21,26 @@ col1, col2 = st.columns([1, 2])
 
 with col1:
     st.header("📝 Configuração da Aula")
-    tema = st.text_input("Qual o Tema da Aula Prática?", placeholder="Ex: Titulação Ácido-Base, Reações Exotérmicas...")
     
+    temas_disponiveis = [
+        "Propriedades gerais e específicas da matéria",
+        "Fenômeno físico e químico",
+        "Substância e mistura",
+        "Métodos de separação de misturas",
+        "Atomística",
+        "Tabela periódica",
+        "Ligações químicas",
+        "Polaridade e forças intermoleculares",
+        "Leis ponderais",
+        "Relações numéricas (massa, mol, entidades e volume)",
+        "Estequiometria",
+        "Funções inorgânicas"
+    ]
+    tema = st.selectbox("Qual o Tema da Aula Prática?", options=temas_disponiveis)
+    
+    observacoes = st.text_area("Observações do Professor (Opcional):", placeholder="Ex: desejo que a aula utilize separação de misturas homogêneas...")
+    
+    condicao_visual = st.radio("Condição Visual do Aluno:", ["Cego por completo", "Baixa visão"])
     btn_build_index = st.button("📚 Indexar Manuais (Primeiro Uso RAG)")
     if btn_build_index:
         with st.spinner("Lendo os PDFs e criando banco de inteligência da turma..."):
@@ -41,7 +59,11 @@ with col2:
         else:
             with st.spinner("Buscando na literatura validada e adequando as Restrições (POP 02)..."):
                 try:
-                    saida = lesson_generator.gerar_plano_de_aula(tema)
+                    saida = lesson_generator.gerar_plano_de_aula(
+                        tema=tema, 
+                        observacoes=observacoes, 
+                        condicao_visual=condicao_visual
+                    )
                     plano = json.loads(saida) # Parseia a string de volta pra dic
                     
                     st.success("Plano Gerado com Sucesso! 🌟")
