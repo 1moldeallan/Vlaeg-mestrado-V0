@@ -14,9 +14,6 @@ st.set_page_config(page_title="S.I.N.A.P.S.E | Laboratório Inclusivo", layout="
 st.title("🧠 S.I.N.A.P.S.E.")
 st.subheader("Sistema Inclusivo de Aulas Práticas, Sensoriais e Experimentais")
 
-st.markdown("""
-**Motor V.L.A.E.G. Ativado** | O **SINAPSE** cruza manuais acadêmicos de acessibilidade (`knowledge_base/`) para projetar do zero aulas práticas de laboratório, focadas em percepção multi-sensorial (tato, audição e olfato) para integração total de alunos cegos e de baixa visão.
-""")
 st.divider()
 
 col1, col2 = st.columns([1, 2])
