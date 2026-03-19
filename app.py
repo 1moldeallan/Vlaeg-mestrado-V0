@@ -192,6 +192,31 @@ hr {
     border-color: rgba(204, 255, 0, 0.2) !important;
 }
 
+/* ========================================================= */
+/* BLINDAGEM DO EXPANDER (Tiras retráteis de Materiais)      */
+/* ========================================================= */
+[data-testid="stExpander"] {
+    background-color: #1A1423 !important;
+    border: 1px solid #322544 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+[data-testid="stExpander"] summary {
+    background-color: #1A1423 !important;
+    color: #FFFFFF !important;
+    padding: 10px 15px !important;
+}
+
+[data-testid="stExpander"] summary:hover {
+    background-color: #322544 !important;
+}
+
+[data-testid="stExpander"] > div {
+    /* Fundo interno do expander */
+    background-color: transparent !important;
+}
+
 /* Painéis Título */
 div.stMarkdown p {
     font-size: 1.05rem;
