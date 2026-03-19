@@ -40,6 +40,11 @@ h1, h2, h3, h4 {
     font-weight: 700 !important;
 }
 
+/* Oculta o ícone de "link" (âncora flutuante) que aparece no modo hover dos títulos */
+.stMarkdown a svg, .stHeadingContainer a svg {
+    display: none !important;
+}
+
 /* Botões - Acento principal Verde Neon (da Referência) */
 div[data-testid="stButton"] button {
     background-color: #CCFF00 !important;
@@ -180,8 +185,8 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # ==========================================
 
 # Header Criativo
-st.title("⚡ S.I.N.A.P.S.E.")
-st.subheader("Sistema Inclusivo de Aulas Práticas, Sensoriais e Experimentais")
+st.title("⚡ S.I.N.A.P.S.E.", anchor=False)
+st.subheader("Sistema Inclusivo de Aulas Práticas, Sensoriais e Experimentais", anchor=False)
 
 st.divider()
 
@@ -240,11 +245,11 @@ if btn_gerar:
                 st.divider()
                 
                 # Exibindo estilizado e amigável
-                st.subheader(f"📌 {plano.get('tema', tema)}")
+                st.subheader(f"📌 {plano.get('tema', tema)}", anchor=False)
                 st.info(f"**🎯 Objetivo Inclusivo:** {plano.get('objetivo_inclusivo')}")
                 
                 roteiro = plano.get("Roteiro_Experimento", {})
-                st.markdown(f"### 🔬 Experimento: {roteiro.get('titulo')}")
+                st.subheader(f"🔬 Experimento: {roteiro.get('titulo')}", anchor=False)
                 
                 with st.expander("🛠️ Materiais Necessários", expanded=True):
                     for item in roteiro.get("materiais", []):
