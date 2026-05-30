@@ -38,7 +38,7 @@ especialistas**.
 1. **Identificar**, na literatura, os princípios de acessibilidade e inclusão — Desenho Universal
    para a Aprendizagem (DUA), multissensorialidade e mediação histórico-cultural (Vygotsky) — que
    devem orientar aulas práticas de Química para estudantes com deficiência visual.
-2. **Desenvolver** o sistema GAIIA, integrando recuperação de contexto (RAG) sobre uma base
+2. **Desenvolver** o sistema GAIIA, integrando Geração Aumentada por Recuperação (RAG) sobre uma base
    científica e um modelo de linguagem generativo, incorporando essas diretrizes de acessibilidade
    à geração dos planos de aula.
 3. **Avaliar**, com especialistas em ensino de Química e em educação especial/deficiência visual,
