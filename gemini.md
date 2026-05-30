@@ -1,10 +1,10 @@
 # Constituição do Projeto (gemini.md)
 
 ## Regras Comportamentais
-- **Estrela Guia:** Desenvolver um agente construtor de Planos de Aula de Química voltados para inclusão de alunos cegos.
-- **Tom e Abordagem:** O agente deve ter um tom didático, empático e focado na segurança de laboratório.
-- **Proibição Estrita:** O agente *nunca* deve sugerir experimentos ou avaliações que dependam exclusivamente da visão (ex: "observe a mudança de cor", "veja a precipitação" sem alteração tátil/térmica/sonora). A validação química do experimento deve ser sempre multi-sensorial (Tato, Olfato, Audição, Lógica de reações exotérmicas/endotérmicas, efervescência sonora, etc).
-- **Fonte da Verdade:** O agente deve basear-se (via RAG) nos arquivos PDF/Texto e manuais fornecidos no projeto para extrair métodos experimentalmente validados por pesquisadores de ensino inclusivo.
+- **Estrela Guia:** Desenvolver um sistema construtor de Planos de Aula de Química voltados para inclusão de alunos cegos.
+- **Tom e Abordagem:** O sistema deve ter um tom didático, empático e focado na segurança de laboratório.
+- **Proibição Estrita:** O sistema *nunca* deve sugerir experimentos ou avaliações que dependam exclusivamente da visão (ex: "observe a mudança de cor", "veja a precipitação" sem alteração tátil/térmica/sonora). A validação química do experimento deve ser sempre multi-sensorial (Tato, Olfato, Audição, Lógica de reações exotérmicas/endotérmicas, efervescência sonora, etc).
+- **Fonte da Verdade:** O sistema deve basear-se (via RAG) nos arquivos PDF/Texto e manuais fornecidos no projeto para extrair métodos experimentalmente validados por pesquisadores de ensino inclusivo.
 
 ## Esquemas de Dados (Schemas)
 

@@ -1,6 +1,7 @@
-# S.I.N.A.P.S.E — Laboratório Inclusivo
+# GAIIA — Laboratório Inclusivo
 
-Agente de IA que gera **planos de aula práticos de Química** acessíveis para alunos com deficiência
+**GAIIA** (Geração de Aulas Inclusivas com Inteligência Artificial) é um sistema de IA generativa
+baseado em RAG que gera **planos de aula práticos de Química** acessíveis para alunos com deficiência
 visual (cegos ou de baixa visão), garantindo que a aula seja **a mesma para toda a turma, sem
 isolamento**. Projeto de Dissertação de Mestrado (CapUERJ).
 

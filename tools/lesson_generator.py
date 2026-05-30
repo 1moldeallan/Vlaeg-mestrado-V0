@@ -54,7 +54,7 @@ def gerar_plano_de_aula(tema: str, observacoes: str = "", condicao_visual: str =
     """
 
     template = """
-    Você é um agente educacional focado em Química e Educação Inclusiva (Protocolo V.L.A.E.G.).
+    Você é um sistema educacional focado em Química e Educação Inclusiva (Protocolo V.L.A.E.G.).
     A sua tarefa é construir um Plano de Aula Prática sobre o tema: {tema}.
     
     A sala possui alunos videntes e um aluno com a seguinte condição visual: {condicao_visual}. A aula precisa ser A MESMA para todos, sem isolamento.

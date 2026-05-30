@@ -87,7 +87,7 @@ def build_vector_store():
     print("Banco de dados RAG construído com sucesso!")
 
 def retrieve_context(query, k=4):
-    """POP 01: Recupera o contexto da base para guiar o Agente."""
+    """POP 01: Recupera o contexto da base para guiar o sistema."""
     load_environment()
     api_key = os.environ.get("GEMINI_API_KEY")
     embeddings = GoogleGenerativeAIEmbeddings(

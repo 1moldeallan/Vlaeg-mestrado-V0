@@ -4,7 +4,7 @@ from fpdf import FPDF
 class PDF(FPDF):
     def header(self):
         self.set_font("helvetica", "B", 14)
-        self.cell(0, 10, "S.I.N.A.P.S.E - Plano de Aula Inclusivo", align="C", new_x="LMARGIN", new_y="NEXT")
+        self.cell(0, 10, "GAIIA - Plano de Aula Inclusivo", align="C", new_x="LMARGIN", new_y="NEXT")
         self.ln(10)
 
     def footer(self):

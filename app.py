@@ -11,7 +11,7 @@ import rag_retriever
 import pdf_exporter
 
 st.set_page_config(
-    page_title="S.I.N.A.P.S.E | Laboratório Inclusivo",
+    page_title="GAIIA | Laboratório Inclusivo",
     layout="wide",
     page_icon=":material/science:",
 )
@@ -73,7 +73,7 @@ h1, h2, h3, h4 {
 }
 
 /* ---------- Hero ---------- */
-.sinapse-hero {
+.gaiia-hero {
     animation: riseIn 0.7s cubic-bezier(.2,.7,.2,1) both;
     margin-bottom: 0.4rem;
 }
@@ -380,7 +380,7 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # ---------- Sidebar: identidade + configuração ----------
 with st.sidebar:
     st.markdown(
-        "<div class='sb-brand'>S.I.N.A.P.S.E.</div>"
+        "<div class='sb-brand'>GAIIA</div>"
         "<div class='sb-tag'>Laboratório Inclusivo</div>",
         unsafe_allow_html=True,
     )
@@ -397,9 +397,9 @@ with st.sidebar:
 # ---------- Hero ----------
 st.markdown(
     """
-    <div class="sinapse-hero">
+    <div class="gaiia-hero">
         <span class="eyebrow">Protocolo V.L.A.E.G · Química Acessível</span>
-        <h1 class="hero-title">S.I.N.A.P.S.E<span class="dot">.</span></h1>
+        <h1 class="hero-title">GAIIA<span class="dot">.</span></h1>
         <p class="hero-sub">Planos de aula práticos de Química desenhados para a turma inteira —
         com substituição sensorial garantida para alunos com deficiência visual, sem isolamento.</p>
         <div class="hero-rule"></div>
@@ -465,7 +465,7 @@ if btn_gerar:
                     st.download_button(
                         label="Compartilhar / baixar plano de aula em PDF",
                         data=pdf_bytes,
-                        file_name=f"Plano_SINAPSE_{tema.replace(' ', '_')}.pdf",
+                        file_name=f"Plano_GAIIA_{tema.replace(' ', '_')}.pdf",
                         mime="application/pdf",
                         use_container_width=True,
                         icon=":material/download:",

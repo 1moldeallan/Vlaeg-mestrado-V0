@@ -1,7 +1,7 @@
 # POP 01: Recuperação de Conhecimento (RAG)
 
 ## Objetivo
-Garantir que o Agente consulte a base bibliográfica validada (`knowledge_base/`) antes de tentar gerar qualquer experimento usando apenas o treinamento nativo do LLM.
+Garantir que o sistema consulte a base bibliográfica validada (`knowledge_base/`) antes de tentar gerar qualquer experimento usando apenas o treinamento nativo do LLM.
 
 ## Gatilho
 O usuário (Professor) envia um Payload de Entrada contendo:
@@ -19,4 +19,4 @@ O usuário (Professor) envia um Payload de Entrada contendo:
 
 ## Casos de Borda (Edge Cases)
 - **Falha de Leitura do PDF:** Se um PDF corromper, logar o erro no console e usar os PDFs restantes.
-- **Nenhum resultado na Base:** O Agente deve alertar o professor: *"Não encontrei literatura validada nesta base para este tema. Criei uma adaptação teórica baseada nas diretrizes de segurança, mas requer revisão rigorosa."*
+- **Nenhum resultado na Base:** O sistema deve alertar o professor: *"Não encontrei literatura validada nesta base para este tema. Criei uma adaptação teórica baseada nas diretrizes de segurança, mas requer revisão rigorosa."*
