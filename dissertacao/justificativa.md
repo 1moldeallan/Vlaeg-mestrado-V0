@@ -7,13 +7,13 @@
 A inclusão de estudantes com deficiência visual na escola regular não é uma concessão, mas um
 direito assegurado pela legislação brasileira, em especial pela Lei Brasileira de Inclusão
 (Lei nº 13.146/2015) e pela Política Nacional de Educação Especial na Perspectiva da Educação
-Inclusiva [CITAR: LBI 2015; Política 2008]. Mais do que garantir a matrícula, esse marco legal
+Inclusiva (BRASIL, 2015; BRASIL, 2008). Mais do que garantir a matrícula, esse marco legal
 pressupõe a participação efetiva do aluno em todas as atividades escolares, em igualdade de
 condições com os demais.
 
 No ensino de Química, contudo, esse princípio esbarra em um obstáculo concreto: a
 **experimentação**, reconhecida como elemento central da aprendizagem científica
-[CITAR: Giordan; Chassot], apoia-se predominantemente em desfechos visuais, como mudanças de
+(GIORDAN, 1999; CHASSOT, 2003), apoia-se predominantemente em desfechos visuais, como mudanças de
 cor, formação de precipitados e observação direta de fenômenos. Diante de uma aula prática
 estruturada dessa forma, o estudante com deficiência visual costuma ser excluído da atividade,
 receber uma tarefa paralela adaptada (o que reforça o **isolamento** que a educação inclusiva
@@ -46,16 +46,16 @@ sobre adaptações acessíveis, recuperando diretrizes validadas na literatura c
 oferecendo ao professor comum, de forma rápida e fundamentada, um plano de aula prático que inclua
 o estudante com deficiência visual na **mesma atividade que a turma, sem isolamento**. Essa
 premissa de "uma só aula para todos" alinha-se aos princípios do **Desenho Universal para a
-Aprendizagem (DUA)** [CITAR: CAST; Rose & Meyer] e à perspectiva histórico-cultural, que
+Aprendizagem (DUA)** (ROSE; MEYER, 2002; CAST, 2024) e à perspectiva histórico-cultural, que
 compreende a deficiência como fenômeno social e destaca o papel da mediação na aprendizagem
-[CITAR: Vygotsky, Fundamentos de Defectologia].
+[PENDENTE: VIGOTSKI, Fundamentos de Defectologia; confirmar edição/tradução na busca dedicada do Marcador 4].
 
 Do ponto de vista acadêmico, embora existam estudos consolidados sobre o ensino de Química para
 estudantes com deficiência visual e uma literatura emergente sobre inteligência artificial na
 educação, a **interseção** entre essas frentes (o uso de IA generativa, fundamentada por RAG,
 para produzir planos de aula de Química acessíveis e inclusivos) permanece pouco explorada
-[CITAR: indicar lacuna a partir do levantamento bibliográfico]. Este trabalho busca contribuir
-para preencher essa lacuna.
+[PENDENTE: confirmar a lacuna na busca dedicada do Marcador 5; não afirmar sem fontes]. Este trabalho
+busca contribuir para preencher essa lacuna.
 
 Por fim, o impacto potencial extrapola o caso individual: ao apoiar o planejamento docente, o
 sistema pode beneficiar não apenas um aluno, mas replicar-se para outros professores e turmas,
